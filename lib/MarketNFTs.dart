@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'data.dart';
 
 class MarketNFTs extends StatelessWidget {
+
   const MarketNFTs({Key? key}) : super(key: key);
 
   @override
@@ -145,150 +146,140 @@ class MarketNFTs extends StatelessWidget {
                       // padding: EdgeInsets.symmetric(vertical: 10.0,),
                       // padding: EdgeInsets.all(16.0),
                       child: Column(children: [
-                        Container(
-                            height: 250,
-                            child: ListView.separated(
-                              scrollDirection: Axis.horizontal,
+                          GridView.builder(
+                              scrollDirection: Axis.vertical,
                               shrinkWrap: true,
-                              itemCount: data.length,
-                              itemBuilder: (BuildContext context, int index) {
-                                return Row(
-                                    mainAxisSize: MainAxisSize.min,
-                                    children: [
-                                      Container(
-                                          alignment: Alignment.center,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.all(
-                                                Radius.circular(15)),
-                                            // border: Border.all(color: Colors.lightBlue, width: 1),
-                                            color: Colors.white10,
-                                          ),
-                                          child: Column(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Container(
-                                                width: 180,
+                          physics: BouncingScrollPhysics(),
+                      itemCount: data.length,
+                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        mainAxisExtent: 256,
+                      ),
+                      itemBuilder: (_, index) =>Container(
+                        height: 400,
+                                    alignment: Alignment.center,
+                                    decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(15)),
+                                      // border: Border.all(color: Colors.lightBlue, width: 1),
+                                      color: Colors.white10,
+                                    ),
+                                    child: Column(
+                                      mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                      crossAxisAlignment:
+                                      CrossAxisAlignment.start,
+                                      children: [
+                                        Container(
+                                          width: 180,
 
-                                                // height: 150,
-                                                child: Stack(children: [
-                                                  Positioned(
-                                                      //right: 10.0,
-                                                      //top: 10.0,
-                                                      child: Image.asset(
-                                                          data[index]['image']
-                                                              .toString(), width: double.infinity,
-                                                       )),
-                                                  Positioned(
-                                                    right: 20.0,
-                                                    top: 10.0,
-                                                    width: 25,
-                                                    height: 15,
-                                                    child: Container(
-                                                        width: 40,
-                                                        decoration:
-                                                            BoxDecoration(
-                                                          borderRadius:
-                                                              BorderRadius.all(
-                                                                  Radius
-                                                                      .circular(
-                                                                          15)),
-                                                          // border: Border.all(color: Colors.lightBlue, width: 1),
-                                                          color: Colors.black12,
-                                                        ),
-                                                        child: Row(children: [
-                                                          Image.asset(
-                                                            'image/Vector.png',
-                                                            width: 12,
-                                                            height: 10,
-                                                          ),
-                                                          SizedBox(
-                                                            width: 3,
-                                                          ),
-                                                          Text('2',
-                                                              style: TextStyle(
-                                                                fontSize: 10,
-                                                                color: Colors
-                                                                    .black87,
-                                                              ))
-                                                        ])),
+                                          // height: 150,
+                                          child: Stack(children: [
+                                            Positioned(
+                                              //right: 10.0,
+                                              //top: 10.0,
+                                                child: Image.asset(
+                                                  data[index]['image'].toString(), width: double.infinity,
+                                                )),
+                                            Positioned(
+                                              right: 20.0,
+                                              top: 10.0,
+                                              width: 25,
+                                              height: 15,
+                                              child: Container(
+                                                  width: 40,
+                                                  decoration:
+                                                  BoxDecoration(
+                                                    borderRadius:
+                                                    BorderRadius.all(
+                                                        Radius
+                                                            .circular(
+                                                            15)),
+                                                    // border: Border.all(color: Colors.lightBlue, width: 1),
+                                                    color: Colors.black12,
                                                   ),
-                                                ]),
-                                              ),
+                                                  child: Row(children: [
+                                                    Image.asset(
+                                                      'image/Vector.png',
+                                                      width: 12,
+                                                      height: 10,
+                                                    ),
+                                                    SizedBox(
+                                                      width: 3,
+                                                    ),
+                                                    Text('2',
+                                                        style: TextStyle(
+                                                          fontSize: 10,
+                                                          color: Colors
+                                                              .black87,
+                                                        ))
+                                                  ])),
+                                            ),
+                                          ]),
+                                        ),
+                                        Text(
+                                         data[index]['title'].toString(),
+                                          style: TextStyle(
+                                            fontSize: 18,
+                                            color: Colors.white,
+                                          ),
+                                        ),
+                                        Row(
+                                            mainAxisAlignment:
+                                            MainAxisAlignment.start,
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.center,
+                                            children: [
                                               Text(
-                                                data[index]['title'].toString(),
+                                                '#1267',
                                                 style: TextStyle(
                                                   fontSize: 18,
                                                   color: Colors.white,
                                                 ),
                                               ),
-                                              Row(
-                                                  mainAxisAlignment:
-                                                      MainAxisAlignment.start,
-                                                  crossAxisAlignment:
-                                                      CrossAxisAlignment.center,
-                                                  children: [
-                                                    Text(
-                                                      '#1267',
-                                                      style: TextStyle(
-                                                        fontSize: 18,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                    SizedBox(
-                                                      width: 90,
-                                                    ),
-                                                    Container(
-                                                        width: 14,
-                                                        height: 28,
-                                                        child: Column(
-                                                            mainAxisAlignment:
-                                                                MainAxisAlignment
-                                                                    .center,
-                                                            crossAxisAlignment:
-                                                                CrossAxisAlignment
-                                                                    .end,
-                                                            children: [
-                                                              Icon(
-                                                                Icons
-                                                                    .arrow_drop_up,
-                                                                size: 14,
-                                                                color: Colors
-                                                                    .white,
-                                                              ),
-                                                              Icon(
-                                                                  Icons
-                                                                      .arrow_drop_down_sharp,
-                                                                  size: 14,
-                                                                  color: Colors
-                                                                      .white)
-                                                            ])),
-                                                    Text(
-                                                      '6.64',
-                                                      style: TextStyle(
-                                                        fontSize: 18,
-                                                        color: Colors.white,
-                                                      ),
-                                                    ),
-                                                  ])
-                                            ],
-                                          ))
-                                    ]);
-                              },
-                              separatorBuilder:
-                                  (BuildContext context, int index) {
-                                return const SizedBox(
-                                  width: 15.0,
-                                  height: 10.0,
-                                );
-                              },
-                            ))
-                      ]))
-                ]))));
+                                              SizedBox(
+                                                width: 90,
+                                              ),
+                                              Container(
+                                                  width: 14,
+                                                  height: 28,
+                                                  child: Column(
+                                                      mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .center,
+                                                      crossAxisAlignment:
+                                                      CrossAxisAlignment
+                                                          .end,
+                                                      children: [
+                                                        Icon(
+                                                          Icons
+                                                              .arrow_drop_up,
+                                                          size: 14,
+                                                          color: Colors
+                                                              .white,
+                                                        ),
+                                                        Icon(
+                                                            Icons
+                                                                .arrow_drop_down_sharp,
+                                                            size: 14,
+                                                            color: Colors
+                                                                .white)
+                                                      ])),
+                                              Text(
+                                                '6.64',
+                                                style: TextStyle(
+                                                  fontSize: 18,
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                            ])
+                                      ],
+                                    )))]),
+
+                          )]))));
+                              }
   }
-}
+
 
 Widget customContainer({required String? text}) {
   return Container(

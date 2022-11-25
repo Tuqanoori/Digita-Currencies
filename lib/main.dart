@@ -243,7 +243,7 @@ class MyApp extends StatelessWidget {
                                       fontWeight: FontWeight.w700,
                                       fontStyle: FontStyle.normal,
                                     )),
-                                  Text('+6.21%'!,
+                                  Text('+6.21%',
                                       style: TextStyle(
                                         fontSize: 14,
                                         color: Colors.red,
